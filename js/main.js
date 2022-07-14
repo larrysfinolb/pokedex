@@ -1,46 +1,47 @@
-// Función para obtener todos los pokemones y cargarlos en el home
-// function getAllPokemon() {
-// axios
-// 	.get('https://pokeapi.co/api/v2/pokemon/')
-// 	.then((response) => {
-// 		let data = response.data;
-// 		console.log(data);
-// 		axios
-// 			.get(`https://pokeapi.co/api/v2/pokemon/?limit=${20}`)
-// 			.then((response) => {
-// 				let results = response.data.results;
-// 				let allPokemon = '';
-// 				for (const result of results) {
-// 					axios
-// 						.get(result.url)
-// 						.then((response) => {
-// 							let pokemon = response.data;
-// 							allPokemon += `
-// 							<li class="list__pokemon">
-// 							    <a href="pokemon.html?name=${pokemon.name}">
-// 									<div class="list__pokemon-img">
-// 										<img src="${pokemon.sprites['front_default']}" />
-// 									</div>
-// 									<div class="list__pokemon-info">
-// 										<p class="list__pokemon-id">#${pokemon.id}</p>
-// 							        	<p class="list__pokemon-name">${pokemon.name}</p>
-// 							    	</div>
-// 								</a>
-// 							</li>`;
-// 							document.querySelector('#list').innerHTML = allPokemon;
-// 						})
-// 						.catch((error) => {});
-// 				}
-// 			})
-// 			.catch((error) => {});
-// 	})
-// 	.catch((error) => {});
-// }
+let lastSearch = '';
+let names = [];
 
-function getAllPokemon(id) {
-	if (document.querySelector('#search').value == '') {
+function loadAllPokemon() {
+	document.querySelector('#list').innerHTML = '';
+	axios
+		.get('https://pokeapi.co/api/v2/pokemon/?limit=905')
+		.then((response) => {
+			const allPokemon = response.data.results;
+
+			for (const pokemon of allPokemon) {
+				names.push(pokemon.name);
+			}
+
+			getPokemonByNames(names);
+		})
+		.catch((error) => {
+			console.log(`Error in promise: ${error}`);
+		});
+}
+
+function loadPokemonBySearch(search) {
+	document.querySelector('#list').innerHTML = '';
+	axios
+		.get('https://pokeapi.co/api/v2/pokemon/?limit=905')
+		.then((response) => {
+			const allPokemon = response.data.results;
+
+			for (const pokemon of allPokemon) {
+				let name = pokemon.name.replace(/-/g, ' ');
+				if (name.includes(search)) names.push(pokemon.name);
+			}
+
+			getPokemonByNames(names);
+		})
+		.catch((error) => {
+			console.log(`Error in promise: ${error}`);
+		});
+}
+
+function getPokemonByNames() {
+	if (names.length > 0) {
 		axios
-			.get(`https://pokeapi.co/api/v2/pokemon/${id}`)
+			.get(`https://pokeapi.co/api/v2/pokemon/${names[0]}`)
 			.then((response) => {
 				let pokemon = response.data;
 				createCard(pokemon);
@@ -49,26 +50,10 @@ function getAllPokemon(id) {
 				console.log(`Error in promise: ${error}`);
 			})
 			.finally(() => {
-				id++;
-				if (id <= 905) getAllPokemon(id);
+				names.shift();
+				if (names.length > 0) getPokemonByNames(names);
 			});
 	}
-}
-
-function getSearchPokemon(names) {
-	axios
-		.get(`https://pokeapi.co/api/v2/pokemon/${names[0]}`)
-		.then((response) => {
-			let pokemon = response.data;
-			createCard(pokemon);
-		})
-		.catch((error) => {
-			console.log(`Error in promise: ${error}`);
-		})
-		.finally(() => {
-			names.shift();
-			if (names.length > 0) getSearchPokemon(names);
-		});
 }
 
 function createCard(pokemon) {
@@ -88,41 +73,26 @@ function createCard(pokemon) {
 			</div>
 		</a>`;
 
-	document.querySelector('#list').appendChild(card);
-}
-
-function searchPokemon() {
-	axios
-		.get('https://pokeapi.co/api/v2/pokemon/?limit=905')
-		.then((response) => {
-			const results = response.data.results;
-
-			const search = document.querySelector('#search').value.toLowerCase();
-			const names = [];
-
-			for (const key in results) {
-				const name = results[key].name.replace(/-/g, ' ');
-				if (name.includes(search)) names.push(results[key].name);
-			}
-
-			document.querySelector('#list').innerHTML = '';
-			getSearchPokemon(names);
-		})
-		.catch((error) => {
-			console.log(`Error in promise: ${error}`);
-		});
-}
-
-function buttonSearch() {
-	document.querySelector('#list').innerHTML = '';
-	if (document.querySelector('#search').value == '') {
-		getAllPokemon(1);
-	} else {
-		searchPokemon();
+	for (const name of names) {
+		if (name == pokemon.name) {
+			document.querySelector('#list').appendChild(card);
+			break;
+		}
 	}
 }
 
-function createCardPokemon(pokemon) {}
+function buttonSearch() {
+	const search = document.querySelector('#search').value;
+	if (search == '' && lastSearch != '') {
+		names = [];
+		lastSearch = search;
+		loadAllPokemon();
+	} else if (lastSearch != search) {
+		names = [];
+		lastSearch = search;
+		loadPokemonBySearch(search);
+	}
+}
 
 // Función para obtener los datos de un pokemon
 function getPokemosn() {
