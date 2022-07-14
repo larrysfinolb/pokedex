@@ -1,0 +1,10 @@
+.list {
+	grid-template-columns: repeat(4, 1fr);
+}
+.list__pokemon-info {
+	font-size: 1.6rem;
+}
+
+.pokemon__imgs {
+	grid-template-columns: repeat(4, 1fr);
+}
