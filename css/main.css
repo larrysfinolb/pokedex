@@ -87,7 +87,7 @@ a {
 
 .list {
 	display: grid;
-	grid-template-columns: 1fr 1fr;
+	grid-template-columns: repeat(auto-fill, minmax(134px, 1fr));
 	gap: 1.6rem;
 }
 .list__pokemon {
@@ -127,6 +127,10 @@ a {
 	color: var(--pink);
 }
 .list__pokemon-name {
+	display: inline-block;
+	overflow: hidden;
+}
+.list__pokemon-name p {
 	text-transform: capitalize;
 	color: var(--white);
 }

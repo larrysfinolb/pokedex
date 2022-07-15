@@ -54,6 +54,7 @@ function getPokemon() {
 }
 
 function buttonSearch() {
+	document.querySelector('#searchForm').addEventListener('submit', (event) => event.preventDefault());
 	const search = document.querySelector('#search').value;
 	if (search == '') {
 		window.location.href = 'index.html';

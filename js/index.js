@@ -40,8 +40,8 @@ function loadPokemonBySearch(search) {
 			const allPokemon = response.data.results;
 
 			for (const pokemon of allPokemon) {
-				let name = pokemon.name.replace(/-/g, ' ');
-				if (name.includes(search)) names.push(pokemon.name);
+				let name = pokemon.name.replace(/-/g, ' ').toLowerCase();
+				if (name.includes(search.toLowerCase())) names.push(pokemon.name);
 			}
 
 			getPokemonByNames(names);
@@ -82,7 +82,7 @@ function createCard(pokemon) {
 			</div>
 			<div class="list__pokemon-info">
 				<p class="list__pokemon-id">#${pokemon.id.toString().padStart(3, 0)}</p>
-				<p class="list__pokemon-name">${pokemon.name.replace(/-/g, ' ')}</p>
+				<span class="list__pokemon-name"><p>${pokemon.name.replace(/-/g, ' ')}</p></span>
 			</div>
 		</a>`;
 
@@ -95,6 +95,7 @@ function createCard(pokemon) {
 }
 
 function buttonSearch() {
+	document.querySelector('#searchForm').addEventListener('submit', (event) => event.preventDefault());
 	const search = document.querySelector('#search').value;
 	if (search == '' && lastSearch != '') {
 		names = [];
