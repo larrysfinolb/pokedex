@@ -6,7 +6,17 @@ function getPokemon() {
 		.get(`https://pokeapi.co/api/v2/pokemon/${name}`)
 		.then((response) => {
 			let pokemon = response.data;
-			console.log(pokemon);
+
+			let spriteFront = pokemon.sprites['front_default'] == null ? '' : pokemon.sprites['front_default'];
+			let spriteBack = pokemon.sprites['back_default'] == null ? '' : pokemon.sprites['back_default'];
+			let spriteShinyFront = pokemon.sprites['front_shiny'] == null ? '' : pokemon.sprites['front_shiny'];
+			let spriteShinyBack = pokemon.sprites['back_shiny'] == null ? '' : pokemon.sprites['back_shiny'];
+
+			let typesHTML = '';
+			for (const key in pokemon.types) {
+				const type = pokemon.types[key].type.name;
+				typesHTML += `<span class="pokemon__type pokemon__type--${type}">${type}</span>`;
+			}
 
 			let movesHTML = '';
 			for (const key in pokemon.moves) {
@@ -19,17 +29,18 @@ function getPokemon() {
 					<p class="pokemon__name">${pokemon.name}</p>
 				</div>
 				<div class="pokemon__imgs">
-					<img src="${pokemon.sprites['front_default']}" />
-					<img src="${pokemon.sprites['back_default']}" />
-					<img src="${pokemon.sprites['front_shiny']}" />
-					<img src="${pokemon.sprites['back_shiny']}" />
+					<img src="${spriteFront}" />
+					<img src="${spriteBack}" />
+					<img src="${spriteShinyFront}" />
+					<img src="${spriteShinyBack}" />
 				</div>
+				<div class="pokemon__types">${typesHTML}</div>
 				<div class="pokemon__details">
 					<div>
 						<h2 class="pokemon__title">Specie</h2>
 						<ul class="pokemon__grid">
-							<li>Height: ${pokemon.height / 10}M</li>
-							<li>Weight: ${pokemon.weight / 10}Kg</li>
+							<li>Height: ${pokemon.height / 10}m</li>
+							<li>Weight: ${pokemon.weight / 10}kg</li>
 						</ul>
 					</div>
 					<div>
@@ -50,7 +61,9 @@ function getPokemon() {
 				</%&div>
 			`;
 		})
-		.catch((error) => {});
+		.catch((error) => {
+			console.log(`Error in promise: ${error}`);
+		});
 }
 
 function buttonSearch() {

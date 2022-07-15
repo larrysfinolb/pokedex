@@ -5,3 +5,7 @@
 .pokemon__imgs {
 	grid-template-columns: repeat(4, 1fr);
 }
+
+.pokemon__list {
+	grid-template-columns: 1fr 1fr 1fr;
+}
