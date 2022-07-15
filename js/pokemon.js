@@ -25,8 +25,8 @@ function getPokemon() {
 
 			document.querySelector('#pokemon').innerHTML = `
 				<div class="pokemon__info">
-					<p class="pokemon__id">#${pokemon.id}</p>
-					<p class="pokemon__name">${pokemon.name}</p>
+					<p class="pokemon__id">#${pokemon.id.toString().padStart(3, 0)}</p>
+					<p class="pokemon__name">${pokemon.name.replace(/-/g, ' ')}</p>
 				</div>
 				<div class="pokemon__imgs">
 					<img src="${spriteFront}" />
@@ -39,8 +39,8 @@ function getPokemon() {
 					<div>
 						<h2 class="pokemon__title">Specie</h2>
 						<ul class="pokemon__grid">
-							<li>Height: ${pokemon.height / 10}m</li>
-							<li>Weight: ${pokemon.weight / 10}kg</li>
+							<li>Height: ${(pokemon.height / 10).toFixed(2)}m</li>
+							<li>Weight: ${(pokemon.weight / 10).toFixed(2)}kg</li>
 						</ul>
 					</div>
 					<div>

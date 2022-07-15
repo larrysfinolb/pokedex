@@ -43,6 +43,9 @@ button {
 	border: none;
 	outline: none;
 }
+button {
+	cursor: pointer;
+}
 ul {
 	list-style: none;
 }

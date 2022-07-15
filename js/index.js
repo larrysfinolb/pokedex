@@ -17,7 +17,7 @@ function loadIndex() {
 function loadAllPokemon() {
 	document.querySelector('#list').innerHTML = '';
 	axios
-		.get('https://pokeapi.co/api/v2/pokemon/?limit=905')
+		.get('https://pokeapi.co/api/v2/pokemon/?limit=898')
 		.then((response) => {
 			const allPokemon = response.data.results;
 
@@ -35,7 +35,7 @@ function loadAllPokemon() {
 function loadPokemonBySearch(search) {
 	document.querySelector('#list').innerHTML = '';
 	axios
-		.get('https://pokeapi.co/api/v2/pokemon/?limit=905')
+		.get('https://pokeapi.co/api/v2/pokemon/?limit=898')
 		.then((response) => {
 			const allPokemon = response.data.results;
 
