@@ -29,10 +29,10 @@ function getPokemon() {
 					<p class="pokemon__name">${pokemon.name.replace(/-/g, ' ')}</p>
 				</div>
 				<div class="pokemon__imgs">
-					<img src="${spriteFront}" />
-					<img src="${spriteBack}" />
-					<img src="${spriteShinyFront}" />
-					<img src="${spriteShinyBack}" />
+					<img src="${spriteFront}" alt="${pokemon.name} front image"/>
+					<img src="${spriteBack}" alt="${pokemon.name} back image"/>
+					<img src="${spriteShinyFront}" alt="${pokemon.name} front shiny image"/>
+					<img src="${spriteShinyBack}" alt="${pokemon.name} back shiny image"/>
 				</div>
 				<div class="pokemon__types">${typesHTML}</div>
 				<div class="pokemon__details">
@@ -68,7 +68,7 @@ function getPokemon() {
 
 function buttonSearch() {
 	document.querySelector('#searchForm').addEventListener('submit', (event) => event.preventDefault());
-	const search = document.querySelector('#search').value;
+	const search = document.querySelector('#search').value.toLowerCase().trim();
 	if (search == '') {
 		window.location.href = 'index.html';
 	} else {

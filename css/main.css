@@ -243,8 +243,8 @@ a {
 .pokemon__type--electric {
 	background-color: var(--electric-type);
 }
-.pokemon__type--phychic {
-	background-color: var(--phychic-type);
+.pokemon__type--psychic {
+	background-color: var(--psychic-type);
 }
 .pokemon__type--ice {
 	background-color: var(--ice-type);
