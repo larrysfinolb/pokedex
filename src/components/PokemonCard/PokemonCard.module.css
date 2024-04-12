@@ -1,0 +1,190 @@
+.PokemonCard {
+  padding: 8rem 0 3rem 0;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.ImageContainer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ImageContainer > img {
+  width: 260px;
+  position: absolute;
+  bottom: 0;
+}
+
+.Name {
+  font-size: 2rem;
+  text-transform: capitalize;
+}
+
+.ListType {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  list-style: none;
+}
+
+.Type {
+  width: 120px;
+  padding: 0.25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25rem;
+  border-radius: 0.75rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.Details {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+.Details > p {
+  width: 120px;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.Details > p > span {
+  display: inline-flex;
+  align-items: center;
+  font-size: 1rem;
+  font-weight: normal;
+}
+
+.BugTypeCard {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 25%, var(--BugColor) 100%);
+}
+.BugType {
+  background-color: var(--BugColor);
+}
+
+.DarkTypeCard {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 25%, var(--DarkColor) 100%);
+}
+.DarkType {
+  background-color: var(--DarkColor);
+}
+
+.DragonTypeCard {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 25%, var(--DragonColor) 100%);
+}
+.DragonType {
+  background-color: var(--DragonColor);
+}
+
+.ElectricTypeCard {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 25%, var(--ElectricColor) 100%);
+}
+.ElectricType {
+  background-color: var(--ElectricColor);
+}
+
+.FairyTypeCard {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 25%, var(--FairyColor) 100%);
+}
+.FairyType {
+  background-color: var(--FairyColor);
+}
+
+.FightingTypeCard {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 25%, var(--FightingColor) 100%);
+}
+.FightingType {
+  background-color: var(--FightingColor);
+}
+
+.FireTypeCard {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 25%, var(--FireColor) 100%);
+}
+.FireType {
+  background-color: var(--FireColor);
+}
+
+.FlyingTypeCard {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 25%, var(--FlyingColor) 100%);
+}
+.FlyingType {
+  background-color: var(--FlyingColor);
+}
+
+.GhostTypeCard {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 25%, var(--GhostColor) 100%);
+}
+.GhostType {
+  background-color: var(--GhostColor);
+}
+
+.GrassTypeCard {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 25%, var(--GrassColor) 100%);
+}
+.GrassType {
+  background-color: var(--GrassColor);
+}
+
+.GroundTypeCard {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 25%, var(--GroundColor) 100%);
+}
+.GroundType {
+  background-color: var(--GroundColor);
+}
+
+.IceTypeCard {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 25%, var(--IceColor) 100%);
+}
+.IceType {
+  background-color: var(--IceColor);
+}
+
+.NormalTypeCard {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 25%, var(--NormalColor) 100%);
+}
+.NormalType {
+  background-color: var(--NormalColor);
+}
+
+.PoisonTypeCard {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 25%, var(--PoisonColor) 100%);
+}
+.PoisonType {
+  background-color: var(--PoisonColor);
+}
+
+.PsychicTypeCard {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 25%, var(--PsychicColor) 100%);
+}
+.PsychicType {
+  background-color: var(--PsychicColor);
+}
+
+.RockTypeCard {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 25%, var(--RockColor) 100%);
+}
+.RockType {
+  background-color: var(--RockColor);
+}
+
+.SteelTypeCard {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 25%, var(--SteelColor) 100%);
+}
+.SteelType {
+  background-color: var(--SteelColor);
+}
+
+.WaterTypeCard {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 25%, var(--WaterColor) 100%);
+}
+.WaterType {
+  background-color: var(--WaterColor);
+}

@@ -1,0 +1,17 @@
+.CardSkeleton {
+  width: 100%;
+  height: 366px;
+  padding: 8rem 3rem 3rem 3rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 3rem;
+  animation: skeleton-loading 3s ease infinite alternate;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  100% {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+}

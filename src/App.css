@@ -1,0 +1,32 @@
+:root {
+  /* Color Types */
+  --BugColor: #a6b91a;
+  --DarkColor: #705746;
+  --DragonColor: #6f35fc;
+  --ElectricColor: #f7d02c;
+  --FairyColor: #d685ad;
+  --FightingColor: #c22e28;
+  --FireColor: #ee8130;
+  --FlyingColor: #a98ff3;
+  --GhostColor: #735797;
+  --GrassColor: #7ac74c;
+  --GroundColor: #e2bf65;
+  --IceColor: #96d9d6;
+  --NormalColor: #a8a77a;
+  --PoisonColor: #a33ea1;
+  --PsychicColor: #f95587;
+  --RockColor: #b6a136;
+  --SteelColor: #b7b7ce;
+  --WaterColor: #6390f0;
+}
+
+#root {
+  width: 100%;
+}
+
+main {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}

@@ -1,0 +1,38 @@
+.Filters {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.Section {
+  margin-top: 8rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  column-gap: 2rem;
+  row-gap: 8rem;
+}
+
+@media (width > 425px) {
+  .Section {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (width > 768px) {
+  .Filters {
+    flex-direction: row;
+  }
+
+  .Filters > *:first-child {
+    width: 50%;
+    order: 2;
+  }
+  .Filters > *:last-child {
+    width: 50%;
+    order: 1;
+  }
+
+  .Section {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

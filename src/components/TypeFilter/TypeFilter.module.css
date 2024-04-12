@@ -1,0 +1,87 @@
+.Container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.Label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.Filters {
+  padding: 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  background: #3b3b3b;
+}
+
+.Type {
+  width: 1.75rem;
+  height: 1.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.BugType {
+  background-color: var(--BugColor);
+}
+.DarkType {
+  background-color: var(--DarkColor);
+}
+.DragonType {
+  background-color: var(--DragonColor);
+}
+.ElectricType {
+  background-color: var(--ElectricColor);
+}
+.FairyType {
+  background-color: var(--FairyColor);
+}
+.FightingType {
+  background-color: var(--FightingColor);
+}
+.FireType {
+  background-color: var(--FireColor);
+}
+.FlyingType {
+  background-color: var(--FlyingColor);
+}
+.GhostType {
+  background-color: var(--GhostColor);
+}
+.GrassType {
+  background-color: var(--GrassColor);
+}
+.GroundType {
+  background-color: var(--GroundColor);
+}
+.IceType {
+  background-color: var(--IceColor);
+}
+.NormalType {
+  background-color: var(--NormalColor);
+}
+.PoisonType {
+  background-color: var(--PoisonColor);
+}
+.PsychicType {
+  background-color: var(--PsychicColor);
+}
+.RockType {
+  background-color: var(--RockColor);
+}
+.SteelType {
+  background-color: var(--SteelColor);
+}
+.WaterType {
+  background-color: var(--WaterColor);
+}
